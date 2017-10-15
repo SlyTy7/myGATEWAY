@@ -25,8 +25,11 @@ var accounts = [
 	}
 ];
 
-
+//function that builds and takes you to home page
 function getIntro(){
+	$("#in-out")[0].text = "Log In";
+	$("#in-out").attr("onclick","getLogin()");
+
 	output = `
 		<h1 class="text-primary">Welcome</h1>
 		<hr>
@@ -40,6 +43,7 @@ function getIntro(){
 	outputDiv.html(output);
 }
 
+//function that builds and takes you to log in screen
 function getLogin(){
 	console.log("login button pressed");
 	output = `
@@ -61,6 +65,7 @@ function getLogin(){
 	outputDiv.html(output);
 }
 
+//function that checks if email and password are correct
 function verify(){
 	var email = $("#email").val();
 	var password = $("#password").val();
@@ -72,11 +77,12 @@ function verify(){
 	for(var i=0; i<accounts.length; i++){
 		//email verificiation
 		if(email == accounts[i].email){
-			console.log("email correct");
 
 			//password verification
 			if(password == accounts[i].password){
-				console.log("password correct");
+				$("#in-out")[0].text = "Log Out";
+				$("#in-out").attr("onclick","getIntro()");
+
 				output = `
 					<h1 class="text-primary">Welcome Back, ${accounts[i].firstname}!</h1>
 					<hr>
