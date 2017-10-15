@@ -45,7 +45,7 @@ function getIntro(){
 
 //function that builds and takes you to log in screen
 function getLogin(){
-	console.log("login button pressed");
+	
 	output = `
 		<h1 class="text-primary">Log In</h1>
 		<hr>
@@ -70,9 +70,6 @@ function verify(){
 	var email = $("#email").val();
 	var password = $("#password").val();
 	var error = "<p class='text-danger error'>Incorrect email/password.  Please try again!</p>";
-	console.log(email);
-	console.log(password);
-
 
 	for(var i=0; i<accounts.length; i++){
 		//email verificiation
@@ -80,6 +77,7 @@ function verify(){
 
 			//password verification
 			if(password == accounts[i].password){
+				//redirects to account page and changes nav elements and links
 				$("#in-out")[0].text = "Log Out";
 				$("#in-out").attr("onclick","getIntro()");
 
@@ -91,11 +89,11 @@ function verify(){
 
 				return outputDiv.html(output);
 			}else{
-				console.log("password verification failed")
+				//displays error message
 				outputDiv.html(output + error);
 			}
 		}else{
-			console.log("email verification failed!")
+			//displays error message
 			outputDiv.html(output + error);
 		}
 	}
