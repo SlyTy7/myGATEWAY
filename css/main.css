@@ -11,3 +11,12 @@
 .header {
 	margin-top: 8%;
 }
+
+.form-group p {
+	margin-bottom: 2px;
+}
+
+.error {
+	position: absolute;
+	margin-top: 3px;
+}
